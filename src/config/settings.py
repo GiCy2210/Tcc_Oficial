@@ -40,7 +40,7 @@ nlp = carregar_spacy()
 # Configurações do sistema
 MAX_REDACOES_HISTORICO = 10
 CACHE_TEMPO_SEGUNDOS = 3600
-
+    
 # Competências do ENEM
 COMPETENCIAS = {
     1: "Domínio da norma culta",
