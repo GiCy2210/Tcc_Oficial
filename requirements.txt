@@ -7,3 +7,6 @@ spacy==3.7.5
 langchain==0.1.16
 langchain-community==0.0.34
 faiss-cpu==1.8.0
+tiktoken==0.5
+openai==0.28
+# %%

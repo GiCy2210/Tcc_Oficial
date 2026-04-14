@@ -10,5 +10,5 @@ Sistema baseado em IA para auxiliar estudantes na preparação para a redação 
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/tcc-redacao-ia.git
+git clone https://https://github.com/GiCy2210/Tcc_Oficial
 cd tcc-redacao-ia
