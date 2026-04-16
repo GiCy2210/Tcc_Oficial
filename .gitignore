@@ -1,28 +1,40 @@
 # Python
 __pycache__/
 *.py[cod]
-*.so
+*.pyo
+*.pyd
 .Python
-venv/
-env/
-.env
 *.egg-info/
 dist/
 build/
+.eggs/
+
+# Ambiente virtual
+venv/
+env/
+.venv/
+.env/
+
+# Variáveis de ambiente (NUNCA versionar!)
+.env
+*.env
+
+# Banco de dados local
+data/
+*.db
+*.sqlite3
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+.DS_Store
 
-# Streamlit
-.streamlit/
+# Testes
+.pytest_cache/
+.coverage
+htmlcov/
 
-# Dados locais
-data/resultados/*.json
+# Logs
 *.log
-
-# Secrets
-.env.local
-.secrets

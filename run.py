@@ -1,37 +1,24 @@
-#!/usr/bin/env python3
 """
-Ponto de entrada principal do sistema.
-Execute este arquivo para iniciar a aplicação.
+CorretorIA ENEM — Ponto de entrada.
+Execute: python run.py
 """
-
-import subprocess
-import sys
-import os
-
+import subprocess, sys, os
+from pathlib import Path
 def main():
-    print("🚀 Iniciando o Sistema de Correção de Redações ENEM...")
-    
-    # Verifica se o arquivo .env existe
-    if not os.path.exists(".env"):
-        print("⚠️  Arquivo .env não encontrado!")
-        print("📝 Crie um arquivo .env com: GEMINI_API_KEY=sua_chave_aqui")
-        sys.exit(1)
-    
-    # Adiciona o diretório atual ao PYTHONPATH
-    env = os.environ.copy()
-    env["PYTHONPATH"] = os.getcwd()
-    
-    # Executa o Streamlit
+    print("\n" + "="*52)
+    print("  CorretorIA ENEM  —  v3.0")
+    print("="*52)
     try:
-        subprocess.run(
-            ["streamlit", "run", "app/main.py"],
-            env=env,
-            check=True
-        )
-    except KeyboardInterrupt:
-        print("\n👋 Sistema encerrado.")
-    except Exception as e:
-        print(f"❌ Erro ao executar: {e}")
+        import flask, google.generativeai
+    except ImportError:
+        print("\n📦 Instalando dependências...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+    Path("data").mkdir(exist_ok=True)
+    print("\n🚀 Servidor em http://localhost:5000")
+    print("   Pressione Ctrl+C para parar\n")
+    sys.path.insert(0, str(Path(__file__).parent / "src"))
+    from app.server import app
+    app.run(debug=False, port=5000, host="0.0.0.0")
 
 if __name__ == "__main__":
     main()
